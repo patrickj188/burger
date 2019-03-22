@@ -1,0 +1,80 @@
+<div class="jumbotron">
+    <h1 class="display-3">Eat Da Burger, Eat it Now!</h1>
+    <p class="lead">Jumbo helper text</p>
+    <hr class="my-2">
+    <section class="row"></section>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Hot 'N' Ready Burgers!</h5>
+                    <p class="card-text">Pick the burger that you want to eat!</p>
+                    <ul>
+                        {{#each burger}}
+                        {{#unless devoured}}
+                        <li>
+                            <div class="row">
+                                <div class="col">
+                                    {{ burger_name }}
+                                </div>
+                                <div class="col">
+                                    <button class="btn devour-btn" data-id={{id}} data-status={{devoured}}>Devour It!</button>
+                                </div>
+                            </div>
+                        </li>
+                        {{/unless}}
+                        {{/each}}
+                        {{!-- <ul>
+                            {{#each burger}} {{#unless this.devoured}}
+                            <li>
+                                {{this.id}}. {{this.burger_name}}
+
+                                <form action="/{{this.id}}?_method=PUT" method="POST"></form>
+                                <input type="hidden" name="devoured" value="false">
+                                <button class="btn btn-warning" type="submit">Eat Me!</button>
+                                </form>
+
+                            </li>
+                            {{/unless}} {{/each}}
+                        </ul> --}}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Eaten Burgers</h5>
+                    <p class="card-text">These burgers have been eaten</p>
+
+                     <ul>
+              {{#each burger}}
+                {{#if devoured}}
+                <li>
+                {{ burger_name }} 
+                {{formatDate date}}
+                </li>
+                {{/if}}
+              {{/each}}
+            </ul>
+                    {{!-- <ul>
+                        {{#each burgers}} {{#if this.devoured}}
+                        <li>
+                            {{this.id}}. {{this.burger_name}}
+                        </li>
+                        {{/if}} {{/each}}
+                    </ul> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id='add'>
+        <h2>Add a Burger: </h2>
+
+        <form>
+            <input placeholder="Burger" id="levon-burger" />
+            <button onclick="addBurger()" class="btn btn-warning">ADD ME</button>
+        </form>
+    </div>
+</div>
+
