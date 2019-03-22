@@ -17,3 +17,23 @@ let addBurger = () =>{
 
 
 }
+
+$(function() {
+    $(".devour-btn").on("click", function(event) {
+      var id = $(this).data("id");
+      var eaten = $(this).data("devoured");
+  
+      var newEatenState = {
+        devoured: eaten
+      };
+      $.ajax("/burger/update/" + id, {
+        type: "PUT",
+        data: newEatenState
+      }).then(
+        function() {
+          location.reload();
+        }
+      );
+    });
+
+});
