@@ -1,5 +1,5 @@
 CREATE DATABASE `burgers_db`;
-USE burgers_db;
+USE jawsDBname;
 
 CREATE TABLE `burgers` (
   `id` bigint(60) NOT NULL AUTO_INCREMENT,
