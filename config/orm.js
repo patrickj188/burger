@@ -10,9 +10,12 @@ let orm = {
 			}
 			cb(result);
 		});
-	},
-	addBurger: (table, cols, vals, cb) =>{
-        let queryString = "INSERT INTO" + table;
+    },
+    
+
+	addBurger: (vals, cb) =>{
+        console.log("hey there")
+        let queryString = "INSERT INTO burgers (burger_name) VALUE (?)";
 		connection.query(queryString, vals, (err, result) =>{
 			if (err) {
 				throw err;
@@ -21,8 +24,8 @@ let orm = {
     	});
 	},
 
-	updateBurger: (table, objColVals, condition, cb) =>{
-		let queryString = "UPDATE " + table;
+	updateBurger: (id, cb) =>{
+		let queryString = "UPDATE  burgers SET devoured = true WHERE id = " + id
 		connection.query(queryString, (err, result) =>{
 			if (err) {
 				throw err;

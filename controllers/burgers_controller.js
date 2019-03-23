@@ -11,30 +11,17 @@ router.get('/', (req, res) =>{
   });
 });
 
-router.post("/burgers",(req, res) =>{
+
+
+router.post('/burgers', (req, res) =>{
   console.log(req.body);
-  burger.addBurger(
-      req.body.burger_name,
-      () => {
-          res.redirect("/");
-      });
+  burger.addBurger(req.body.name, (data) => {
+    res.redirect('/');
+  });
 });
 
-// router.post('/burgers', (req, res) =>{
-//   burger.addBurger([
-//     'burger_name'
-//   ], [
-//     req.body.burger_name
-//   ], (data) => {
-//     res.redirect('/');
-//   });
-// });
-
-router.put('/burgers/:id',(req, res) => {
-  var condition = 'id = ' + req.params.id;
-  burger.updateBurger({
-    devoured: true
-  }, condition, (data) => {
+router.put('/burger/:id',(req, res) => {
+  burger.updateBurger(req.params.id, (data) => {
     res.redirect('/');
   });
 });

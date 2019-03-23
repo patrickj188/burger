@@ -1,39 +1,49 @@
-let addBurger = () =>{
+let addBurger = () => {
 
-   let input= document.getElementById("levon-burger")
+  let input = document.getElementById("name")
 
-   fetch("http://localhost:3005/burger/create", {
-       method: "POST",
-       mode: "cors",
-       body: JSON.stringify({
-        name: input.value
-       }),
-       headers: {
-           "Content-Type": "application/json"
-       }
-   }).then((burger) => {
+  fetch("http://localhost:3005/burgers", {
+    method: "POST",
+    mode: "cors",
+    body: JSON.stringify({
+      name: input.value
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then((burger) => {
+    location.reload();
     console.log('derger', burger)
-   })
+  })
 
 
 }
 
-$(function() {
-    $(".devour-btn").on("click", function(event) {
-      var id = $(this).data("id");
-      var eaten = $(this).data("devoured");
-  
+
+document.addEventListener("DOMContentLoaded", () => {
+  let elementsArray = document.querySelectorAll(".devour-btn");
+
+  elementsArray.forEach(function (elem) {
+    elem.addEventListener("click", function () {
+      let id= elem.getAttribute("data-id");
+
       var newEatenState = {
-        devoured: eaten
+        devoured: true
       };
-      $.ajax("/burger/update/" + id, {
-        type: "PUT",
-        data: newEatenState
+      fetch("http://localhost:3005/burger/" + id, {
+        method: "PUT",
+        mode: "cors",
+        body: JSON.stringify(newEatenState),
+        headers: {
+          "Content-Type": "application/json"
+        }
       }).then(
-        function() {
+        function () {
           location.reload();
+
         }
       );
     });
 
+  });
 });
