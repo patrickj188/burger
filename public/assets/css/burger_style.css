@@ -1,0 +1,57 @@
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 200px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+p.lead {
+    text-align: center;
+    color: #FFFFFF;
+}
+#name {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    color: #FFFFFF;
+}
+
+.addBurgerButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    color: black;
+    background-color: #FEDB5A;
+}
+
+main {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+body {
+    background-color: #49C9F3;
+}
+
+.jumbotron {
+    padding: 2rem 1rem;
+    margin: 6rem;
+    background-color:#D1412E;
+    border-radius: .3rem;
+
+}
+
+button.newBurger {
+    color: black;
+    background-color: #FEDB5A;
+}

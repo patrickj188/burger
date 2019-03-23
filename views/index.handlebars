@@ -1,6 +1,7 @@
 <div class="jumbotron">
-    <h1 class="display-3">Jumbo heading</h1>
-    <p class="lead">Jumbo helper text</p>
+    <h1 class="display-3">Hot Juicy Burgers!</h1>
+    <img src="/assets/img/burger.jpeg" width="400px" id="cute_burger">
+    <p class="lead">Create A burger and then DEVOUR it!</p>
     <h1>Eat-Da-Burger!</h1>
 
     <main>
@@ -11,7 +12,7 @@
                     {{#unless this.devoured}}
                     <div>
                         <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
-                            <button type="submit" class='burgerAvailable'> {{this.burger_name}}</button>
+                            <button type="submit" class='newBurger'> {{this.burger_name}}</button>
                         </form>
                     </div>
                     {{/unless}}

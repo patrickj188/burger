@@ -83,14 +83,14 @@ let burger = {
     });
   },
 
-  insertOne: (cols, vals, cb) =>{
-    orm.insertOne('burgers', cols, vals, (res) =>{
+  addBurger: (cols, vals, cb) =>{
+    orm.addBurger('burgers', cols, vals, (res) =>{
       cb(res);
     });
   },
 
-  updateOne: (objColVals, condition, cb) =>{
-    orm.updateOne('burgers', objColVals, condition, (res) =>{
+  updateBurger: (objColVals, condition, cb) =>{
+    orm.updateBurger('burgers', objColVals, condition, (res) =>{
       cb(res);
     });
   }
