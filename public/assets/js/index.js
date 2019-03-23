@@ -2,7 +2,7 @@ let addBurger = () => {
 
   let input = document.getElementById("name")
 
-  fetch("http://localhost:3005/burgers", {
+  fetch(window.location.origin + "/burgers", {
     method: "POST",
     mode: "cors",
     body: JSON.stringify({
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       var newEatenState = {
         devoured: true
       };
-      fetch("http://localhost:3005/burger/" + id, {
+      fetch(window.location.origin + "/burger/" + id, {
         method: "PUT",
         mode: "cors",
         body: JSON.stringify(newEatenState),
